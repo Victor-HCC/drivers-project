@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
     },
-    forname: {
+    forename: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
