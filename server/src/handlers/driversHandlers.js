@@ -6,7 +6,12 @@ const getDriversHandler = async (req, res) => {
 
   try {
     const results = name ? await searchDriverByName(name) : await getAllDrivers();
-    res.status(200).json(results);
+    
+    if (results.length === 0) {
+      res.json({ message: "No drivers found with the specified name" });
+    } else {
+      res.status(200).json(results);
+    }
   } catch (error) {
     res.status(400).json({ error: error.message});
   }

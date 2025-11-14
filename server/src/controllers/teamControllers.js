@@ -2,10 +2,10 @@ const { Team } = require('../db.js');
 const axios = require('axios');
 
 const createOrRetrieveTeam = async (teamName) => {
-  // Try to find an existing type record with the given name
+  // trata de buscar un team ya existente 
   const existingTeam = await Team.findOne({ where: { name: teamName } });
 
-  // If it exists, return it; otherwise, create a new one
+  // si existe lo retorna, sino lo crea en la DB
   if (existingTeam) {
     return existingTeam;
   } else {
@@ -48,11 +48,11 @@ const saveTeamsApi = async () => {
     const apiTeamsRaw = (await axios.get('http://localhost:5000/drivers')).data;
     const apiTeams = cleanArray(apiTeamsRaw);
     // console.log(apiTeams);
-    apiTeams.forEach(async (obj) => {
-      await Team.create(obj);
+    apiTeams.forEach(async (team) => {
+      await Team.create(team);
     });
   } else {
-    // The table is not empty
+    // La tabla no esta vacia
     console.log('Table is not empty');
   }
   
