@@ -23,16 +23,24 @@ const Detail = () => {
   const { forename, surname, teams, image, nationality, description, dob } = driver[0];
 
   return (
-    <div className={style.detail}>
-      <p>ID: {id}</p>
-      <p>Nombre: {forename}</p>
-      <p>Apellido: {surname}</p>
-      <p>Nacionalidad: {nationality}</p>
-      <img src={image} width="50" alt="Imagen piloto" />
-      <p>Descripción: {description}</p>
-      <p>Fecha de Nacimiento: {dob}</p>
-      <p>Escuderias: {teams.split(',').join(', ')}</p>
+    <div className={style.container}>
+      <div className={style.details}>
+        <h2>Driver Profile Details</h2>
+        <p>ID: {id}</p>
+        <p>Forename: {forename}</p>
+        <p>Surname: {surname}</p>
+        <p>Nationality: {nationality}</p>
+        <p>Description: {description}</p>
+        <p>Birthdate: {dob}</p>
+        <p>Teams: {teams?.split(',').join(', ')}</p>
+      </div>
+
+      <div className={style.imageContainer}>
+        <img className={style.img} src={image} alt="Imagen piloto" />
+      </div>
+      
     </div>
+    
   )
 }
 

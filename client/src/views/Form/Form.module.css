@@ -1,0 +1,83 @@
+.container {
+  position: absolute;
+  top: 4rem; /* Adjust this value to match the height of your navbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, rgba(39, 38, 38, 0.5), rgba(0, 0, 0, 0.7)), url('../../assets/img/form1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100% - 4rem);
+  display: flex;
+  align-items: center;
+}
+
+.container form {
+  background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 600px;
+  /*vertical-align: top;*/
+}
+
+.container form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.container form input[type="text"],
+.container form textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.container form select {
+  width: 94%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 150px; /* Adjust height as needed */
+}
+
+.container form span {
+  color: red;
+}
+
+.container form button {
+  background-color: #223d5a; /* Button color #007BFF*/
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container form button:hover {
+  background-color: #0056b3; /* Hover color */
+}
+
+.successMessage {
+  background-color: rgb(83, 206, 83);
+  text-align: center;
+  border-radius: 8px;
+  margin-top: .5rem;
+  font-size: large;
+}
+
+.errorMessage {
+  background-color: rgb(241, 88, 88);
+  text-align: center;
+  border-radius: 8px;
+  margin-top: .5rem;
+  font-size: large;
+}

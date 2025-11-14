@@ -29,7 +29,7 @@ const Landing = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <h1>Drivers API</h1>
+        <h1>Drivers APP</h1>
       </div>
 
       <div className={styles.linkContainer}>

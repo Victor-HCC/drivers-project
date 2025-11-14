@@ -4,7 +4,7 @@ import style from './CardsContainer.module.css';
 import { useSelector } from 'react-redux';
 
 //Debe tomar un array de usuarios y por cada uno renderizar un componente Card
-const CardsContainer = ({ search, filter, sort }) => {
+const CardsContainer = ({ search, filter, sort, driversByName, currentPage, setCurrentPage }) => {
 
   // console.log(`Filtros ${filter}`);
   // console.log(`Filtros ${filter.team}`);
@@ -12,10 +12,18 @@ const CardsContainer = ({ search, filter, sort }) => {
   // console.log(`Sort ${sort}`);
   let drivers = useSelector(state => state.drivers);
   
-  if(search !== '') {
-    drivers = drivers.filter((driver) =>
-    driver.forename.toLowerCase().includes(search.toLowerCase())
-  );
+  // if(search !== '') {
+  //   drivers = drivers.filter((driver) =>
+  //     driver.forename.toLowerCase().includes(search.toLowerCase())
+  //   );
+  // }
+
+  let content;
+  
+  if(driversByName.message) {
+    content = <p className={style.messageSearch}>{driversByName.message}</p>;
+  } else if(driversByName.length > 0) {
+    drivers = driversByName
   }
 
   const sortedDriversAscending = drivers.slice().sort((a, b) => {
@@ -30,7 +38,7 @@ const CardsContainer = ({ search, filter, sort }) => {
     return dobB - dobA;
   });
 
-  // Apply sorting logic based on sort
+  // Logica para el sort segun el tipo
   if (sort === 'alpha-ascending') {
     drivers.sort((a, b) => a.forename.localeCompare(b.forename));
   } else if (sort === 'alpha-descending') {
@@ -46,10 +54,10 @@ const CardsContainer = ({ search, filter, sort }) => {
   }
 
   if(filter.team) {
-    drivers = drivers.filter(driver => driver.teams?.includes(filter.team))
+    drivers = drivers.filter(driver => driver.teams?.includes(filter.team));
   }
 
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
   const totalPages = Math.ceil(drivers.length / itemsPerPage);
 
@@ -65,24 +73,25 @@ const CardsContainer = ({ search, filter, sort }) => {
     setCurrentPage(currentPage + 1);
   }
 
-
   return (
     <div className={style.container}>
-      {displayedDrivers.map(driver => {
-        return <Card 
-          key={driver.id}
-          id={driver.id}
-          forename={driver.forename}
-          surname={driver.surname}
-          teams={driver.teams}
-          image={driver.image}
-          dob={driver.dob}
-        />
-      })}
-      <div>
-        <button onClick={handlePreviousPage} disabled={currentPage === 1}>Previous</button>
+      <div className={style.cards}>
+        { search && driversByName.message ? content : displayedDrivers.map(driver => {
+          return <Card 
+            key={driver.id}
+            id={driver.id}
+            forename={driver.forename}
+            surname={driver.surname}
+            teams={driver.teams}
+            image={driver.image}
+            dob={driver.dob}
+          />
+        })}
+      </div>
+      <div className={style.buttons}>
+        <button onClick={handlePreviousPage} disabled={currentPage === 1} className={currentPage !== 1 ? style.enabledButton : ''}>Previous</button>
         <span>{currentPage} of {totalPages}</span>
-        <button onClick={handleNextPage} disabled={currentPage === totalPages}>Next</button>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages} className={currentPage !== totalPages ? style.enabledButton : ''}>Next</button>
       </div>
     </div>
   )

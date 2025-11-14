@@ -1,3 +1,43 @@
-.detail {
-  background-color: aquamarine;
+
+.container {
+  position: absolute;
+  top: 4rem; /* Adjust this value to match the height of your navbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(39, 38, 38, 0.5), rgba(0, 0, 0, 0.7)), url('../../assets/img/details.jpg');
+  display: flex;
+  height: calc(100% - 4rem);
+}
+
+
+.details {
+  color: rgb(199, 238, 238);
+  font-size: 1.2rem;
+  width: 60%;
+  padding: 4rem 3rem; /* Add some padding for spacing */
+  height: 80%; /* Set the height to cover 80% of the parent container's height */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+.details p {
+  margin: 0; /* Remove default margin for <p> elements */
+  padding: .7rem 0; /* Add some vertical spacing between paragraphs */
+}
+.details h2 {
+  padding: 0 0 2rem 0;
+  font-size: 1.8rem;
+}
+
+.imageContainer {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 60%; /* Set the width of the image to 40% of its container */
+  max-width: 100%; 
 }

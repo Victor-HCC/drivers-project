@@ -1,8 +1,54 @@
 .container {
   border: 1px solid black;
   border-radius: 15px;
-  padding: 1em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: 2rem auto;
+  align-items: center;
+  height: calc(100% - 6rem);
+  position: relative;
+}
+
+.cards {
+  border: 1px solid black;
+  border-radius: 15px;
+  flex: 1;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.buttons button {
+  border-radius: 10px;
+  margin: .5rem 1rem;
+}
+
+.buttons {
+  color: #e84118;
+  background: #2f3640;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.enabledButton:hover {
+  cursor: pointer;
+}
+
+.enabledButton {
+  background-color: #2f3640;
+  color: white;
+}
+
+.messageSearch {
+  background: rgb(5, 5, 39);
+  font-size: 2rem;
+  color: white;
+  border-radius: 15px;
+  padding: .5rem;
 }

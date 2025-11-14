@@ -1,9 +1,36 @@
-.mainContainer {
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 2px 0;
-  border-radius: 15px;
+  align-items: center;
+  justify-content: space-between;
   border: 1px solid black;
-  background-color: aquamarine;
+  background-color: rgb(172, 12, 12);
+  height: 4rem;
+  color: white;
+  padding: 0 1rem;
+  z-index: 1000;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 0;
+  text-decoration: none;
+  color: white;
+
+}
+
+.links {
+  display: flex;
+  padding-right: 2rem;
+}
+
+.links a {
+  color: rgb(245, 238, 238);
+  font-size: 1.3rem;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0 2rem;
 }

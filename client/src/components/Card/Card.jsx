@@ -12,11 +12,14 @@ const Card = (props) => {
   }
 
   return (
-    <div className={style.card} onClick={handleCardClick}>
-      <img src={image} width="50" alt="Imagen piloto" />
-      <p>Name: {forename} {surname}</p>
-      <p>Escuderias: {teams}</p>
-      <p>DoB: {dob}</p>
+    <div className={style.box} onClick={handleCardClick}>
+      <div className={style.content}>
+        <img src={image} width="80" alt="Imagen piloto" />
+        <p>Name: {forename} {surname}</p>
+        <p>Escuderias: {teams}</p>
+        <p>DoB: {dob}</p>
+      </div>
+      
     </div>
   )
 }

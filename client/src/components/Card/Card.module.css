@@ -4,3 +4,47 @@
   margin: auto;
   text-align: center;
 }
+
+.box {
+  position: relative;
+  width: calc(33.33% - 60px);
+  margin: 5px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(37, 49, 160, 0.5);
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.box::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 160%;
+  background: linear-gradient(#f10202, #f10202);
+  animation: animate 2s linear infinite;
+}
+.box::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  background: rgb(6, 7, 22);
+  border-radius: 16px;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(350deg);
+  }
+}
+
+.content {
+  z-index: 10;
+  text-align: center;
+  color: white;
+}

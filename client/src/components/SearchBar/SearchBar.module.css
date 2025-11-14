@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  justify-content: space-between; /* Use space-between to evenly distribute items */
+  width: 80%;
+  margin: 0.5rem auto;
+}
+
+.searchBox {
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  display: flex; /* Add this to make the children line up in a row */
+}
+
+.searchBtn {
+  color: #e84118;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.searchText {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+  margin-left: auto; /* Push the searchText to the right */
+}
+
+.searchBox:hover > .searchText {
+  width: 200px;
+  padding: 0 6px;
+}
+
+.searchBox:hover > .searchBtn {
+  background: white;
+}
+
+.selectContainer {
+  color: #e84118;
+  background-color: #2f3640;
+  align-items: center;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  border-radius: 15px;
+}
+
+
+/* Add this if you want to center the label and select individually */
+.selectContainer label,
+.selectContainer select {
+  margin: .5rem; /* Reset default margins on label and select */
+}
+
+.selectContainer select {
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(6, 7, 22, .9);
+  color: white;
+}

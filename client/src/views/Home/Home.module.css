@@ -1,3 +1,12 @@
-.homeTitle {
-  background-color: lightblue;
+.container {
+  background-image: url('../../assets/img/fondo-home.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  height: calc(100% - 4rem);
 }
